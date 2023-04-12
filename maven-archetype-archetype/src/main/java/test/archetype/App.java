@@ -1,7 +1,6 @@
 package test.archetype;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
+import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
@@ -13,17 +12,7 @@ public class App {
         System.setProperty("webdriver.chrome.driver", "drive\\chromedriver.exe");
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         ChromeDriver driver = new ChromeDriver();
-        driver.get("https://cps-check.com/pt/click-counter");
-        driver.findElement(By.id("click-plus")).click();
-        countTime(5000L);
+        driver.get("https://thetown.com.br/pt/");
         driver.close();
-    }
-
-    private static void countTime(Long time) {
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
     }
 }

@@ -3,7 +3,6 @@ package test.archetype;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
@@ -18,16 +17,8 @@ public class AppTest {
         System.setProperty("webdriver.chrome.driver", "drive\\chromedriver.exe");
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         ChromeDriver driver = new ChromeDriver();
-        driver.get("https://cps-check.com/pt/click-counter");
-        this.clickButton1000X(driver);
-        String cliques = driver.findElement(By.id("count")).getAttribute("value");
+        driver.get("https://thetown.com.br/pt/");
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://thetown.com.br/pt/"));
         driver.close();
-        Assert.assertTrue(cliques.equals("10"));
-    }
-
-    private void clickButton1000X(ChromeDriver driver) {
-        for(int i = 0; i < 10; i++) {
-            driver.findElement(By.id("click-plus")).click();
-        }
     }
 }
